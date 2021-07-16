@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 require('./models/Carro')
@@ -11,9 +10,7 @@ const Carro = mongoose.model('carros')
     // Body Parser
         app.use(bodyParser.urlencoded({extended: true}))
         app.use(bodyParser.json())
-    // Handlebars
-        app.engine('handlebars', handlebars({defaultLayout: 'main'}))
-        app.set('view engine', 'handlebars');
+
     // Mongoose
         mongoose.Promise = global.Promise;
         mongoose.connect("mongodb://localhost/apicarros").then(() =>{
@@ -23,6 +20,12 @@ const Carro = mongoose.model('carros')
         })    
 
 // Rotas
+//Rota Principal
+app.get('/', (req, res)=>{
+    res.redirect('http://localhost:3000/')
+})
+
+// Retorna JSON com carros
 app.get('/veiculos', (req, res) => {
     Carro.find().lean().then((carros) => {
         res.json(carros)
@@ -31,11 +34,6 @@ app.get('/veiculos', (req, res) => {
         res.redirect('/veiculos')
     })
 })
-
-// // Formulario de veiculos
-// app.get('/addveiculo', (req, res) => {
-//     res.render('addveiculo')
-// })
 
 // Registrando veiculos
 app.post('/veiculos', (req, res) =>{
@@ -58,17 +56,14 @@ app.post('/veiculos', (req, res) =>{
     })
 })
 
-app.get('/veiculos/find/:ano', (req, res) => {
-    Carro.findOne({ano: ano}.then((carro) => {
-        res.render('/veiculos', {carro: carro})
-    }).catch((err) => {
-        console.log('houve um erro ao tentar filtrar')
-        res.redirect('/')
-    }))
-})
-
-// Capturando id 
-
+// app.get('/veiculos/find/:ano', (req, res) => {
+//     Carro.findOne({ano: ano}.then((carro) => {
+//         res.render('/veiculos', {carro: carro})
+//     }).catch((err) => {
+//         console.log('houve um erro ao tentar filtrar')
+//         res.redirect('/')
+//     }))
+// })
 
 // Outros
 const PORT = 8081

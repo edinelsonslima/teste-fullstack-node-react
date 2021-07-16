@@ -3,7 +3,6 @@ import "./index.css";
 
 export default function Modal(props) {
   const [boolPopUp, setBoolPopUp] = useState(true);
-  // const [boolModal, setBoolModal] = useState('');
 
   var style = {
       display: props.open ? 'flex' : 'none'

@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import api from "../../services/api";
 
 import favImg from "../../assets/marcador.png"
-import lapisImg from '../../assets/lapis.png'
 import "./index.css";
 
 export default function Main() {
@@ -26,7 +25,7 @@ export default function Main() {
 
   function handleCards() {
     if (Object.values(carros).length === 0) {
-      console.log("Ainda não pegou os valores da API, tente Atualizar a Lista");
+      console.log("Parece que esta sem carros cadastrados, qualquer coisa é só atualizar lista :)");
     } else {
       let sectionList = document.querySelector("#lista-de-veiculos");
       sectionList.innerHTML = "";
