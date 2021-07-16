@@ -6,7 +6,7 @@
 - Entre na pasta backend dentro de App e rode o comando **npm instal**
   - Esse comando vai instalar as dependências da aplicação **node**
  
-* Depois que o **db estiver online** e as **dependências instalas**, ainda na pasta backend entre rode o comando **npm run dev**
+* Depois que o **db estiver online** e as **dependências instalas**, ainda na pasta backend rode o comando **npm run dev**
 
 #
 <h2 align="center"> Tecnologias usadas </h2>
