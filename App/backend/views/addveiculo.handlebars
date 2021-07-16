@@ -1,0 +1,19 @@
+<div class="card">
+    <div class="card-body">
+        <h4>Nova Carro:</h4>
+        <form action="/veiculos" method="POST">
+            <label for="veiuclo">Veiculo:</label>
+            <input type="text" name="veiculo" class="form-control">
+            <label for="ano">Ano:</label>
+            <input type="number" name="ano" class="form-control">
+            <label for="titulo">Descrição:</label>
+            <input type="text" name="descricao" class="form-control">
+            <label for="vendido">Vendido:</label>
+            <input type="checkbox" name="vendido" class="form-control">
+            <label for="created">Data:</label>
+            <input type="date" name="created" class="form-control">
+            <br>
+            <button class="btn btn-success" type="submit">Cadastrar Veiculo</button>
+        </form>
+    </div>
+</div>
